@@ -1,10 +1,16 @@
+import turtle
+import random
 from turtle import Turtle, Screen
+from hit_wall import Hit_Ball
 screen = Screen()
 
 player1 = Turtle()
 player2 = Turtle()
 ball = Turtle()
 tim = Turtle()
+
+check = Hit_Ball(ball)
+
 
 screen.setup(1000,640)
 screen.bgcolor("black")
@@ -48,9 +54,25 @@ ball.shapesize(1.6)
 
 screen.tracer(1)
 
-is_on = True
-while is_on:
-    ball.forward(6)
+screen.listen()
+
+
+
+
+
+
+
+
+
+ball.speed("fastest")
+ball.setheading(random.randint(0,360))
+
+def game():
+    ball.forward(10)
+    check.is_hitting_to_wall()
+    check.is_hitting_to_players(player1,player2)
+    screen.ontimer(game,1)
+game()
 
 
 
@@ -65,6 +87,4 @@ while is_on:
 
 
 
-
-
-screen.exitonclick()
+turtle.mainloop()
