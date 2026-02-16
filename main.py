@@ -55,11 +55,18 @@ ball.shapesize(1.6)
 
 
 screen.tracer(1)
+goo = False
+def tr():
+    global goo
+    goo = True
+def tp():
+    global goo
+    goo = False
 
 header = Players_Moving(player1,player2)
 screen.listen()
-screen.onkeypress(fun = header.p_up(),key = "w")
-screen.onkeypress(fun = header.p_down(),key = "s")
+screen.onkeypress(fun = tr,key = "w")
+screen.onkeypress(fun = tp,key = "s")
 
 
 
@@ -71,9 +78,10 @@ ball.setheading(random.randint(0,360))
 
 def game():
     ball.forward(10)
+
     check.is_hitting_to_wall()
     check.is_hitting_to_players(player1,player2)
-    screen.ontimer(game,1)
+    screen.ontimer(game,10)
 game()
 
 
