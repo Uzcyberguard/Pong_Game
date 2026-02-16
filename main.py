@@ -2,6 +2,7 @@ import turtle
 import random
 from turtle import Turtle, Screen
 from hit_wall import Hit_Ball
+from players_moving import Players_Moving
 screen = Screen()
 
 player1 = Turtle()
@@ -52,12 +53,13 @@ ball.color("white")
 ball.penup()
 ball.shapesize(1.6)
 
+
 screen.tracer(1)
 
+header = Players_Moving(player1,player2)
 screen.listen()
-
-
-
+screen.onkeypress(fun = header.p_up(),key = "w")
+screen.onkeypress(fun = header.p_down(),key = "s")
 
 
 
