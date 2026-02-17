@@ -8,17 +8,17 @@ from score import Score
 
 screen = Screen()
 screen.title("Pong Game")
-SPEED = 9
+SPEED = 10
 player1 = Turtle()
 player2 = Turtle()
 ball = Turtle()
 tim = Turtle()
 
 check = Hit_Ball(ball)
-score = Score()
+score = Score(ball)
 
 screen.setup(1000,640)
-screen.bgcolor("green")
+screen.bgcolor("black")
 
 screen.tracer(0)
 
@@ -75,10 +75,10 @@ def rp():
     goo_down = False
 header = Players_Moving(player1,player2)
 screen.listen()
-screen.onkeypress(fun = tr,key = "Up")
-screen.onkeyrelease(fun = tp,key = "Up")
-screen.onkeypress(fun = rt,key = "Down")
-screen.onkeyrelease(fun = rp,key = "Down")
+screen.onkeypress(fun = tr,key = "w")
+screen.onkeyrelease(fun = tp,key = "w")
+screen.onkeypress(fun = rt,key = "s")
+screen.onkeyrelease(fun = rp,key = "s")
 
 
 
@@ -88,14 +88,17 @@ ball.speed("fastest")
 ball.setheading(random.randint(-60,60))
 
 def game():
+    screen.tracer(0)
     ball.forward(SPEED)
     if goo_up:
         header.p_up()
-    if goo_down:
+    elif goo_down:
         header.p_down()
+    screen.tracer(1)
     check.is_hitting_to_wall()
     check.is_hitting_to_players(player1,player2)
-    screen.ontimer(game,10)
+
+    screen.ontimer(game,20)
 game()
 
 
