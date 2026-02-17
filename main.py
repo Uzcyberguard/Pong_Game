@@ -100,12 +100,13 @@ def game():
     check.is_hitting_to_players(player1,player2)
     score.checking()
     if score.live>0:
-        screen.ontimer(game,20)
+        screen.ontimer(game,10)
     elif score.live == 0:
         ball.hideturtle()
-        ball.write("YOU LOST 🤣🤣😂", align="center", font=("Arial", 30, "bold"))
-        time.sleep(2)
-        screen.
+        ball.color("red")
+        ball.write("GAME OVER ", align="center", font=("Arial", 30, "bold"))
+        time.sleep(1)
+        screen.bye()
         return
 
 game()
