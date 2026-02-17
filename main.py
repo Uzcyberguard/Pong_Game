@@ -1,5 +1,6 @@
 import turtle
 import random
+import time
 from turtle import Turtle, Screen
 from hit_wall import Hit_Ball
 from players_moving import Players_Moving
@@ -97,11 +98,17 @@ def game():
     screen.tracer(1)
     check.is_hitting_to_wall()
     check.is_hitting_to_players(player1,player2)
+    score.checking()
+    if score.live>0:
+        screen.ontimer(game,20)
+    elif score.live == 0:
+        ball.hideturtle()
+        ball.write("YOU LOST 🤣🤣😂", align="center", font=("Arial", 30, "bold"))
+        time.sleep(2)
+        screen.
+        return
 
-    screen.ontimer(game,20)
 game()
-
-
 
 
 

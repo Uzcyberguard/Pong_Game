@@ -1,4 +1,5 @@
 from turtle import Turtle
+import time
 class Score():
     def __init__(self,ball):
         self.sc = Turtle()
@@ -11,7 +12,11 @@ class Score():
 
         self.sc.write("❤"*self.live,align="center",font=("Arial",18,"bold"))
         self.sc.hideturtle()
-    def checking(self,ball):
-        if self.b.xcor()> 510 or self.b.xcor<-510:
+    def checking(self):
+        if self.b.xcor()> 510 or self.b.xcor()<-510:
+            self.sc.clear()
             self.live -=1
             self.sc.write("❤" * self.live+"💘"*(3-self.live), align="center", font=("Arial", 18, "bold"))
+            time.sleep(1)
+            self.b.goto(0,0)
+            self.b.setheading(60)
