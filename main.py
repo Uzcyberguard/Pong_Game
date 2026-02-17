@@ -3,7 +3,11 @@ import random
 from turtle import Turtle, Screen
 from hit_wall import Hit_Ball
 from players_moving import Players_Moving
+from score import Score
+
+
 screen = Screen()
+screen.title("Pong Game")
 SPEED = 9
 player1 = Turtle()
 player2 = Turtle()
@@ -11,8 +15,8 @@ ball = Turtle()
 tim = Turtle()
 
 check = Hit_Ball(ball)
-
-
+score = Score(Turtle)
+score.write()
 screen.setup(1000,640)
 screen.bgcolor("black")
 

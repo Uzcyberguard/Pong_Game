@@ -5,10 +5,12 @@ class Players_Moving:
         self.p1.speed("fastest")
         self.p2.speed("fastest")
     def p_up(self):
-        self.p1.sety(self.p1.ycor()+20)
+        if self.p1.ycor()<=250:
+            self.p1.sety(self.p1.ycor()+20)
 
-        self.p2.sety(self.p2.ycor()+20)
+            self.p2.sety(self.p2.ycor()+20)
     def p_down(self):
-        self.p1.sety(self.p1.ycor()-20)
+        if self.p1.ycor()>= -250:
+            self.p1.sety(self.p1.ycor()-20)
 
-        self.p2.sety(self.p2.ycor()-20)
+            self.p2.sety(self.p2.ycor()-20)
