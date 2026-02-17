@@ -15,10 +15,10 @@ ball = Turtle()
 tim = Turtle()
 
 check = Hit_Ball(ball)
-score = Score(Turtle)
-score.write()
+score = Score()
+
 screen.setup(1000,640)
-screen.bgcolor("black")
+screen.bgcolor("green")
 
 screen.tracer(0)
 
@@ -57,7 +57,7 @@ ball.color("white")
 ball.penup()
 ball.shapesize(1.6)
 
-
+score.write()
 screen.tracer(1)
 goo_up = False
 goo_down = False
