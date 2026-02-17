@@ -29,11 +29,7 @@ tim.color("white")
 tim.goto(0,-320)
 tim.setheading(90)
 
-while tim.ycor()<630:
-    tim.penup()
-    tim.forward(20)
-    tim.pendown()
-    tim.forward(20)
+
 tim.hideturtle()
 
 

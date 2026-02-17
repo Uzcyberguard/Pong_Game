@@ -13,7 +13,7 @@ class Score():
         self.sc.write("❤"*self.live,align="center",font=("Arial",18,"bold"))
         self.sc.hideturtle()
     def checking(self):
-        if self.b.xcor()> 510 or self.b.xcor()<-510:
+        if self.b.xcor()> 520 or self.b.xcor()<-520:
             self.sc.clear()
             self.live -=1
             self.sc.write("❤" * self.live+"💘"*(3-self.live), align="center", font=("Arial", 18, "bold"))
