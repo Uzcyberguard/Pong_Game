@@ -83,8 +83,6 @@ screen.onkeyrelease(fun = rp,key = "s")
 
 
 
-
-
 ball.speed("fastest")
 ball.setheading(random.randint(-60,60))
 
@@ -103,23 +101,10 @@ def game():
         screen.ontimer(game,10)
     elif score.live == 0:
         ball.hideturtle()
-        ball.color("red")
+        ball.color("green")
         ball.write("GAME OVER ", align="center", font=("Arial", 30, "bold"))
         time.sleep(1)
         screen.bye()
         return
-
 game()
-
-
-
-
-
-
-
-
-
-
-
-
 turtle.mainloop()
