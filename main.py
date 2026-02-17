@@ -4,7 +4,7 @@ from turtle import Turtle, Screen
 from hit_wall import Hit_Ball
 from players_moving import Players_Moving
 screen = Screen()
-
+SPEED = 9
 player1 = Turtle()
 player2 = Turtle()
 ball = Turtle()
@@ -55,30 +55,40 @@ ball.shapesize(1.6)
 
 
 screen.tracer(1)
-goo = False
+goo_up = False
+goo_down = False
 def tr():
-    global goo
-    goo = True
+    global goo_up
+    goo_up = True
 def tp():
-    global goo
-    goo = False
-
+    global goo_up
+    goo_up = False
+def rt():
+    global goo_down
+    goo_down = True
+def rp():
+    global goo_down
+    goo_down = False
 header = Players_Moving(player1,player2)
 screen.listen()
-screen.onkeypress(fun = tr,key = "w")
-screen.onkeypress(fun = tp,key = "s")
-
+screen.onkeypress(fun = tr,key = "Up")
+screen.onkeyrelease(fun = tp,key = "Up")
+screen.onkeypress(fun = rt,key = "Down")
+screen.onkeyrelease(fun = rp,key = "Down")
 
 
 
 
 
 ball.speed("fastest")
-ball.setheading(random.randint(0,360))
+ball.setheading(random.randint(-60,60))
 
 def game():
-    ball.forward(10)
-
+    ball.forward(SPEED)
+    if goo_up:
+        header.p_up()
+    if goo_down:
+        header.p_down()
     check.is_hitting_to_wall()
     check.is_hitting_to_players(player1,player2)
     screen.ontimer(game,10)

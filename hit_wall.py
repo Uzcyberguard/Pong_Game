@@ -8,8 +8,8 @@ class Hit_Ball:
         if self.ball.ycor()>=300 or self.ball.ycor()<=-290:
 
             self.ball.setheading(-self.ball.heading())
-            self.ball.forward(8)
+            self.ball.forward(10)
     def is_hitting_to_players(self,player1,player2):
-        if (self.ball.xcor()>=460 or self.ball.xcor()<=-470) and (self.ball.distance(player1) <= 32.69 or self.ball.distance(player2) <= 32.69):
+        if (self.ball.xcor()>=460 or self.ball.xcor()<=-470) and (self.ball.distance(player1) <= 66.2 or self.ball.distance(player2) <= 66.2):
             self.ball.setheading(180-self.ball.heading())
             self.ball.forward(10)
